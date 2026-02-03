@@ -1,9 +1,10 @@
-"use client"; // Importante: esto es un componente interactivo
+"use client";
 
 import Link from "next/link";
 import { ShoppingCart, Menu, Search, Droplets } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
+import { useCartStore } from "@/lib/store";
 import {
   Sheet,
   SheetContent,
@@ -12,6 +13,8 @@ import {
   SheetTrigger,
 } from "@/components/ui/sheet";
 import { Separator } from "@/components/ui/separator";
+import CartSheet from "@/components/cart/CartSheet";
+import SearchBar from "@/components/SearchBar";
 
 export default function Navbar() {
   const links = [
@@ -24,47 +27,42 @@ export default function Navbar() {
 
   return (
     <header className="sticky top-0 z-50 w-full border-b bg-white/95 backdrop-blur supports-[backdrop-filter]:bg-white/60">
-      <div className="container flex h-16 items-center justify-between px-4 md:px-6">
-        {/* LOGO - Izquierda */}
-        <Link href="/" className="flex items-center gap-2 font-bold text-xl text-blue-700">
-          <Droplets className="h-6 w-6" />
-          <span>Aqua Sanitarios</span>
-        </Link>
+      
+      {/* CAMBIO 1: Usamos 'w-full px-6' en lugar de 'container' para usar todo el ancho */}
+      <div className="flex h-16 items-center justify-between px-4 md:px-8 w-full relative">
+        
+        {/* 1. IZQUIERDA: Logo */}
+        <div className="flex-shrink-0">
+          <Link href="/" className="flex items-center gap-2 font-bold text-xl text-blue-700">
+            <Droplets className="h-6 w-6" />
+            <span className="hidden sm:inline-block">Aqua Sanitarios</span>
+            <span className="sm:hidden">Aqua</span>
+          </Link>
+        </div>
 
-        {/* MENÚ DE ESCRITORIO - Centro (Oculto en móvil) */}
-        <nav className="hidden md:flex gap-6 items-center text-sm font-medium text-gray-700">
+        {/* 2. CENTRO: Links de Navegación */}
+        {/* Truco de ingeniero: position absolute + translate para centrado matemático perfecto */}
+        <nav className="hidden md:flex gap-8 absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2">
           {links.map((link) => (
             <Link
               key={link.name}
               href={link.href}
-              className="hover:text-blue-600 transition-colors"
+              className="text-sm font-medium text-gray-700 hover:text-blue-600 transition-colors"
             >
               {link.name}
             </Link>
           ))}
         </nav>
 
-        {/* ACCIONES - Derecha */}
+        {/* 3. DERECHA: Acciones (Buscador, Carrito ÚNICO, Menú Móvil) */}
         <div className="flex items-center gap-4">
-          {/* Buscador (Solo Desktop) */}
-          <div className="hidden md:flex relative w-64">
-            <Search className="absolute left-2.5 top-2.5 h-4 w-4 text-gray-500" />
-            <Input
-              type="search"
-              placeholder="Buscar caños, grifería..."
-              className="pl-9 bg-gray-50 border-gray-200 focus-visible:ring-blue-500"
-            />
-          </div>
+          
+          {/* Buscador Desktop */}
+          <SearchBar />
 
-          {/* Carrito */}
-          <Button variant="ghost" size="icon" className="relative text-gray-700 hover:text-blue-600">
-            <ShoppingCart className="h-6 w-6" />
-            <span className="sr-only">Carrito</span>
-            {/* Badge de cantidad (Simulado por ahora) */}
-            <span className="absolute top-1 right-1 h-2.5 w-2.5 rounded-full bg-red-500 ring-2 ring-white" />
-          </Button>
+          <CartSheet />
 
-          {/* MENÚ MÓVIL (Hamburguesa) */}
+          {/* Menú Móvil */}
           <div className="md:hidden">
             <Sheet>
               <SheetTrigger asChild>
@@ -79,7 +77,6 @@ export default function Navbar() {
                   </SheetTitle>
                 </SheetHeader>
                 <div className="flex flex-col gap-4 mt-6">
-                  {/* Buscador Móvil */}
                   <div className="relative">
                     <Search className="absolute left-2.5 top-2.5 h-4 w-4 text-gray-500" />
                     <Input placeholder="Buscar..." className="pl-9" />
@@ -100,6 +97,7 @@ export default function Navbar() {
               </SheetContent>
             </Sheet>
           </div>
+
         </div>
       </div>
     </header>
