@@ -110,13 +110,29 @@ export default function Hero() {
               />
               
               {/* Tarjeta Flotante Decorativa (Precio/Oferta) */}
-              <div className="absolute bottom-6 left-6 bg-white/95 backdrop-blur p-4 rounded-2xl shadow-xl border border-gray-100 flex items-center gap-4 animate-bounce duration-[1000ms]">
-                <div className="bg-green-100 p-2 rounded-full">
-                   <CheckCircle2 className="h-6 w-6 text-green-600" />
+              <div className="absolute 
+                  bottom-2 right-2 md:bottom-6 md:right-6  {/* Pegadito al borde en cel, más lejos en PC */}
+                  bg-white/95 backdrop-blur 
+                  p-2 md:p-4                             {/* Menos relleno en celular */}
+                  rounded-xl md:rounded-2xl 
+                  shadow-xl border border-gray-100 
+                  flex items-center 
+                  gap-2 md:gap-4                         {/* Elementos más juntos en celular */}
+                  animate-bounce duration-[3000ms]       {/* Le bajé la velocidad para que sea más elegante */}
+                  max-w-[70%] md:max-w-none              {/* Que nunca ocupe más del 70% de la foto en cel */}
+              ">
+                <div className="bg-green-100 p-1.5 md:p-2 rounded-full">
+                    {/* Icono más chico en celular (h-4) y normal en PC (md:h-6) */}
+                    <CheckCircle2 className="h-4 w-4 md:h-6 md:w-6 text-green-600" />
                 </div>
                 <div>
-                   <p className="text-xs text-gray-500 font-bold uppercase">Calidad Garantizada</p>
-                   <p className="text-sm font-bold text-gray-900">Primeras Marcas</p>
+                    {/* Texto minúsculo en celular, normal en PC */}
+                    <p className="text-[10px] md:text-xs text-gray-500 font-bold uppercase leading-tight">
+                      Calidad Garantizada
+                    </p>
+                    <p className="text-xs md:text-sm font-bold text-gray-900 leading-tight">
+                      Primeras Marcas
+                    </p>
                 </div>
               </div>
 
