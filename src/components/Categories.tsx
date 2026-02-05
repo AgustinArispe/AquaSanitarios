@@ -11,23 +11,23 @@ const categories = [
     href: "/categoria/agua",
     image: "https://images.unsplash.com/photo-1585704032915-c3400ca199e7?q=80&w=2070&auto=format&fit=crop",
     colSpan: "md:col-span-2",
-    theme: "blue" // Por defecto
+    theme: "blue" 
   },
   {
     id: 2,
     title: "Gas",
     description: "Materiales aprobados y seguros.",
     href: "/categoria/gas",
-    image: "https://images.unsplash.com/photo-1621905476059-5f69529db3d9?q=80&w=2069&auto=format&fit=crop",
+    image: "/categorias/gas.jpg",
     colSpan: "md:col-span-1",
-    theme: "orange" // <--- ¡EL COLOR DEL LOGO!
+    theme: "orange" 
   },
   {
     id: 3,
     title: "Grifería y Baño",
     description: "Renová tu estilo.",
     href: "/categoria/griferia",
-    image: "https://images.unsplash.com/photo-1584622050111-993a426fbf0a?q=80&w=2070&auto=format&fit=crop",
+    image: "/categorias/griferias-banio.jpg",
     colSpan: "md:col-span-1",
     theme: "blue"
   },
@@ -36,7 +36,7 @@ const categories = [
     title: "Tanques y Bombas",
     description: "Presión y almacenamiento.",
     href: "/categoria/tanques",
-    image: "https://images.unsplash.com/photo-1517646331032-9e8563c523a1?q=80&w=2000&auto=format&fit=crop",
+    image: "/categorias/tanque-bomba.jpg",
     colSpan: "md:col-span-2",
     theme: "blue"
   },
@@ -45,8 +45,8 @@ const categories = [
     title: "Sanitarios",
     description: "Inodoros, bidets y bachas.",
     href: "/categoria/sanitarios",
-    image: "https://images.unsplash.com/photo-1507652313519-d4e9174996dd?q=80&w=2070&auto=format&fit=crop",
-    colSpan: "md:col-span-3", // Ocupa todo el ancho
+    image: "/categorias/sanitarios.jpg",
+    colSpan: "md:col-span-3", 
     theme: "blue"
   },
 ];

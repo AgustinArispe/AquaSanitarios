@@ -1,74 +1,129 @@
 "use client";
 
 import Link from "next/link";
-import { ArrowRight } from "lucide-react";
+import { ArrowRight, Flame, CheckCircle2 } from "lucide-react";
 import { Button } from "@/components/ui/button";
-import FadeIn from "@/components/animations/FadeIn"; 
-import FeatureItem from "@/components/animations/FeatureItem";   
+import FadeIn from "@/components/animations/FadeIn";
 
 export default function Hero() {
   return (
-        <section className="relative overflow-hidden bg-gray-50 h-screen flex items-center">      <div className="container px-4 md:px-6 mx-auto">
-        <div className="grid gap-12 lg:grid-cols-2 lg:gap-8 items-center">
+    <section className="relative w-full overflow-hidden bg-gradient-to-br from-blue-50 via-white to-white">
+      
+      {/* Fondo técnico decorativo (Cuadrícula) */}
+      <div className="absolute inset-0 bg-grid-pattern opacity-40" />
+      
+      {/* Mancha de color decorativa (Blur) en la esquina */}
+      <div className="absolute top-0 right-0 w-[500px] h-[500px] bg-blue-100/50 rounded-full blur-3xl -translate-y-1/2 translate-x-1/2" />
+
+      <div className="container relative px-6 md:px-10 mx-auto flex flex-col-reverse lg:flex-row items-center py-12 lg:py-24 gap-12">
+        
+        {/* COLUMNA IZQUIERDA: Texto y Botones */}
+        <div className="flex-1 space-y-8 text-center lg:text-left z-10">
           
-          {/* COLUMNA IZQUIERDA */}
-          <div className="flex flex-col justify-center space-y-8">
+          <FadeIn delay={0.1}>
+            <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-blue-100 text-aqua-blue text-xs font-bold uppercase tracking-wider mb-4 border border-blue-200">
+              <span className="relative flex h-2 w-2">
+                <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-blue-400 opacity-75"></span>
+                <span className="relative inline-flex rounded-full h-2 w-2 bg-blue-500"></span>
+              </span>
+              Envíos a todo Tandil en el día
+            </div>
             
-            {/* Bloque 1: Títulos */}
-            <FadeIn delay={0.1}>
-              <div className="space-y-4">
-                <div className="inline-flex items-center rounded-full border border-blue-200 bg-blue-50 px-3 py-1 text-sm font-medium text-blue-800">
-                  <span className="flex h-2 w-2 rounded-full bg-blue-600 mr-2"></span>
-                  Envíos a todo Tandil
-                </div>
-                <h1 className="text-4xl font-bold tracking-tighter sm:text-5xl xl:text-6xl/none text-gray-900">
-                  Soluciones integrales para tu <span className="text-blue-600">obra de agua y gas</span>
-                </h1>
-                <p className="max-w-[600px] text-gray-600 md:text-xl">
-                  Todo lo que necesitas en sanitarios, grifería, caños y accesorios. Asesoramiento experto de familia a familia.
-                </p>
-              </div>
-            </FadeIn>
+            <h1 className="text-5xl lg:text-7xl font-black text-gray-900 leading-[1.1] tracking-tight">
+              Transformamos tu <br />
+              <span className="relative inline-block text-aqua-blue">
+                proyecto en realidad.
+                {/* Subrayado naranja estilo marcador */}
+                <svg className="absolute w-full h-3 -bottom-1 left-0 text-aqua-orange" viewBox="0 0 100 10" preserveAspectRatio="none">
+                   <path d="M0 5 Q 50 10 100 5" stroke="currentColor" strokeWidth="8" fill="none" opacity="0.8" />
+                </svg>
+              </span>
+            </h1>
+          </FadeIn>
 
-            {/* Bloque 2: Botones */}
-            <FadeIn delay={0.3}>
-              <div className="flex flex-col gap-2 min-[400px]:flex-row">
-                <Button asChild size="lg" className="bg-blue-600 hover:bg-blue-700 text-white shadow-lg shadow-blue-600/20">
-                  <Link href="/catalogo">
-                    Ver Catálogo <ArrowRight className="ml-2 h-4 w-4" />
-                  </Link>
-                </Button>
-                <Button asChild variant="outline" size="lg" className="border-blue-200 text-blue-700 hover:bg-blue-50">
-                  <Link href="/contacto">
-                    Consultar por WhatsApp
-                  </Link>
-                </Button>
-              </div>
-            </FadeIn>
+          <FadeIn delay={0.2}>
+            <p className="text-xl text-gray-500 max-w-2xl mx-auto lg:mx-0 leading-relaxed">
+              De Tandil, para tu casa. Todo en sanitarios, gas y grifería con el asesoramiento técnico que tu obra merece. Desde 2018, acompañando cada paso de tu construcción con soluciones que duran.
+            </p>
+          </FadeIn>
 
-            {/* Bloque 3: Features (Modularizados) */}
-            <FadeIn delay={0.5}>
-              <div className="flex flex-wrap gap-4 lg:gap-8">
-                <FeatureItem text="Stock Permanente" />
-                <FeatureItem text="Atención Personalizada" />
-                <FeatureItem text="Garantía de Calidad" />
-              </div>
-            </FadeIn>
-          </div>
+          <FadeIn delay={0.3}>
+            {/* Contenedor de botones */}
+            <div className="flex flex-col sm:flex-row gap-4 justify-center lg:justify-start pt-6">
+              
+              {/* BOTÓN 1: CATÁLOGO */}
+              <Button 
+                size="lg" 
+                asChild
+                className="bg-blue-800 hover:bg-aqua-blue text-white font-bold text-lg px-8 py-7 rounded-full shadow-lg shadow-blue-900/20 transition-all hover:-translate-y-1"
+              >
+                <Link href="/categoria/agua">
+                  Ver Catálogo <ArrowRight className="ml-2 h-5 w-5" />
+                </Link>
+              </Button>
+              
+              {/* BOTÓN 2: OFERTAS */}
+              <Button 
+                size="lg" 
+                asChild
+                className="bg-orange-600 hover:bg-aqua-orange text-white font-bold text-lg px-8 py-7 rounded-full shadow-lg shadow-orange-900/20 transition-all hover:-translate-y-1"
+              >
+                <Link href="/ofertas">
+                  <Flame className="mr-2 h-5 w-5 text-white" /> 
+                  Ofertas Destacadas
+                </Link>
+              </Button>
 
-          {/* COLUMNA DERECHA: Imagen */}
-          <FadeIn direction="left" delay={0.2} className="w-full flex justify-center lg:justify-end">
-            <div className="relative rounded-2xl overflow-hidden shadow-2xl border-4 border-white rotate-1 hover:rotate-0 transition-transform duration-500">
-              <img
-                alt="Baño moderno Aqua Sanitarios"
-                className="aspect-square object-cover w-full h-full"
-                src="https://images.unsplash.com/photo-1584622050111-993a426fbf0a?q=80&w=2070&auto=format&fit=crop"
-              />
-              <div className="absolute inset-0 bg-gradient-to-tr from-blue-900/10 to-transparent pointer-events-none" />
             </div>
           </FadeIn>
 
+          <FadeIn delay={0.4}>
+            <div className="flex flex-wrap items-center justify-center lg:justify-start gap-6 text-sm font-medium text-gray-500 pt-4">
+              <div className="flex items-center gap-2">
+                <CheckCircle2 className="text-green-500 h-5 w-5" /> Stock Permanente
+              </div>
+              <div className="flex items-center gap-2">
+                <CheckCircle2 className="text-green-500 h-5 w-5" /> Atención Personalizada
+              </div>
+              <div className="flex items-center gap-2">
+                <CheckCircle2 className="text-green-500 h-5 w-5" /> Garantía de Calidad
+              </div>
+            </div>
+          </FadeIn>
         </div>
+
+        {/* COLUMNA DERECHA: Imagen Flotante */}
+        <div className="flex-1 relative z-10 w-full max-w-[600px] lg:max-w-none">
+          <FadeIn delay={0.5} className="relative">
+            
+            {/* Círculo decorativo detrás */}
+            <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[120%] h-[120%] bg-gradient-to-tr from-blue-100 to-transparent rounded-full opacity-70 blur-2xl" />
+            
+            {/* IMAGEN PRINCIPAL FLOTANTE */}
+            {/* Usamos una imagen con fondo limpio o transparente si es posible. 
+                Si no tienes PNG, una buena foto rectangular con bordes redondeados también sirve. */}
+            <div className="relative animate-float rounded-3xl overflow-hidden shadow-2xl border-4 border-white">
+              <img 
+                src="/Bathroom-3.jpg" 
+                alt="Baño Moderno Aqua Sanitarios"
+                className="w-full h-auto object-cover"
+              />
+              
+              {/* Tarjeta Flotante Decorativa (Precio/Oferta) */}
+              <div className="absolute bottom-6 left-6 bg-white/95 backdrop-blur p-4 rounded-2xl shadow-xl border border-gray-100 flex items-center gap-4 animate-bounce duration-[1000ms]">
+                <div className="bg-green-100 p-2 rounded-full">
+                   <CheckCircle2 className="h-6 w-6 text-green-600" />
+                </div>
+                <div>
+                   <p className="text-xs text-gray-500 font-bold uppercase">Calidad Garantizada</p>
+                   <p className="text-sm font-bold text-gray-900">Primeras Marcas</p>
+                </div>
+              </div>
+
+            </div>
+          </FadeIn>
+        </div>
+
       </div>
     </section>
   );

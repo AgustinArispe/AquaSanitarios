@@ -1,26 +1,28 @@
+import Image from "next/image";
 import { Droplets, Mail, MapPin, Clock } from "lucide-react";
 
 export default function Footer() {
   return (
-    // Usamos 'bg-gray-950' que es un negro suave muy elegante, o 'bg-black' directo
     <footer className="bg-gray-950 text-white pt-16 pb-8 border-t border-gray-800">
       <div className="container mx-auto px-6 md:px-12">
         <div className="grid grid-cols-1 md:grid-cols-3 gap-12 lg:gap-20 items-start">
           
-          {/* COLUMNA 1: Identidad Visual */}
+          {/* COLUMNA 1: Logo */}
           <div className="flex flex-col space-y-6">
-            <div className="flex items-center gap-3">
-              {/* Icono con fuego simulando el logo */}
-              <div className="relative">
-                <Droplets className="h-10 w-10 text-white z-10 relative" />
-                <div className="absolute -top-1 -right-1 h-4 w-4 bg-red-600 rounded-full blur-[2px]" />
-              </div>
-              <span className="text-3xl font-bold italic tracking-tighter">
-                Aqua<span className="font-light">Sanitarios</span>
-              </span>
+            
+            <div className="w-48"> 
+              <Image
+                src="/Aqua_With_Logo.png" 
+                alt="Aqua Sanitarios"
+                width={200}
+                height={80}
+                className="w-full h-auto object-contain"
+              />
             </div>
             <p className="text-gray-400 text-sm leading-relaxed max-w-sm">
-              Más de 20 años brindando soluciones integrales para obras de agua, gas y calefacción en Tandil. Distribuidor oficial de primeras marcas.
+            Aqua Sanitario nació en 2018, pero nuestra historia en el rubro comenzó hace más de dos décadas. 
+            Somos una familia de Tandil que transformó años de oficio y conocimiento técnico en un espacio pensado para asesorarte. 
+            No solo vendemos materiales; compartimos la experiencia de haber estado en cada etapa de una obra.
             </p>
           </div>
 

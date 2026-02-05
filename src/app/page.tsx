@@ -2,7 +2,12 @@ import Hero from "@/components/Hero";
 import Categories from "@/components/Categories";
 import BrandsSection from "@/components/BrandsSection";
 import FeaturedProducts from "@/components/FeaturedProducts";
-import Footer from "@/components/Footer"; // <--- Importamos el nuevo Footer
+import Footer from "@/components/Footer"; 
+import HistoryBanner from "@/components/HistoryBanner"; 
+import TipsSection from "@/components/TipsSection";
+import LocationBanner from "@/components/LocationBanner";
+import ServicesBar from "@/components/ServicesBar";
+import FloatingWhatsApp from "@/components/FlootingWhatsApp";
 
 export default function Home() {
   return (
@@ -15,16 +20,29 @@ export default function Home() {
       
       {/* 2. Categorías */}
       <section className="min-h-screen w-full">
-        <Categories />
+      <Categories />
       </section>
 
       {/* 3. Productos Destacados */}
       <FeaturedProducts />
 
-      {/* 4. Marcas */}
+      {/* 4. Blog y Tips */}
+      <TipsSection />
+
+      {/* 5. Ubicacion */}
+      <LocationBanner />
+
+      {/* 6. Servicios */}
+      <ServicesBar />
+      
+      <FloatingWhatsApp/>
+      {/* 7. Historia */}
+      <HistoryBanner />
+
+      {/* 8. Marcas */}
       <BrandsSection />
       
-      {/* 5. Footer Negro Oficial */}
+      {/* 9. Footer Negro Oficial */}
       <Footer />
       
     </main>

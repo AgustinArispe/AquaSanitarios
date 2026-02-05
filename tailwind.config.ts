@@ -13,7 +13,15 @@ const config: Config = {
         "gradient-conic":
           "conic-gradient(from 180deg at 50% 50%, var(--tw-gradient-stops))",
       },
-      // --- AGREGAR DESDE AQUÍ ---
+      // --- AQUÍ ESTÁN LOS COLORES NUEVOS ---
+      colors: {
+        aqua: {
+          blue: "#0054a6",    
+          orange: "#ff6600",  
+          dark: "#111111",    
+        },
+      },
+      // --- AQUÍ ESTÁN LAS ANIMACIONES (MARCAS) ---
       keyframes: {
         marquee: {
           from: { transform: "translateX(0)" },
@@ -21,9 +29,8 @@ const config: Config = {
         },
       },
       animation: {
-        marquee: "marquee 40s linear infinite", // 40s para que sea suave
+        marquee: "marquee 40s linear infinite",
       },
-      // --- HASTA AQUÍ ---
     },
   },
   plugins: [require("tailwindcss-animate")],

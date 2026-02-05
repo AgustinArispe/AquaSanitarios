@@ -23,8 +23,7 @@ export default function SearchBar() {
       <Input
         type="search"
         placeholder="Buscar caños, grifería..."
-        className="pl-9 bg-gray-50 border-gray-200 focus-visible:ring-blue-500 rounded-full"
-        value={query}
+        className="pl-10 h-11 bg-gray-50 border-gray-300 focus-visible:ring-aqua-orange focus-visible:border-aqua-orange rounded-full text-base shadow-sm"        value={query}
         onChange={(e) => setQuery(e.target.value)}
       />
     </form>

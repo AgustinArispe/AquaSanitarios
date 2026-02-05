@@ -8,11 +8,11 @@ export default function TopBar() {
         <div className="flex gap-6">
           <div className="flex items-center gap-2">
             <MapPin className="h-3 w-3 text-blue-300" />
-            <span>Av. Espora 1234, Tandil</span>
+            <span>Av. Del Valle 470, Tandil</span>
           </div>
           <div className="flex items-center gap-2">
             <Phone className="h-3 w-3 text-blue-300" />
-            <span>(249) 442-0000</span>
+            <span>(249) 02-3432</span>
           </div>
           <div className="flex items-center gap-2">
             <Clock className="h-3 w-3 text-blue-300" />

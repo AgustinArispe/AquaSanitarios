@@ -4,7 +4,7 @@ export const products = [
     name: "Tanque de Agua 1000L Tricapa", 
     price: 150000, 
     category: "agua", 
-    image: "https://images.unsplash.com/photo-1585704032915-c3400ca199e7?q=80&w=2070",
+    image: "/productos/tanque-agua.jpg",
     description: "Tanque de alta resistencia con tecnología tricapa que evita la formación de algas y bacterias. Incluye brida de salida lateral de 1 y 1/2 pulgadas. Ideal para viviendas familiares. Garantía de fábrica de 10 años."
   },
   { 
@@ -12,7 +12,7 @@ export const products = [
     name: "Caño IPS 1/2 Fusion", 
     price: 4500, 
     category: "agua", 
-    image: "https://images.unsplash.com/photo-1621905476059-5f69529db3d9?q=80&w=2069",
+    image: "/productos/canio-epoxi.jpg",
     description: "Tubo de polipropileno copolímero random (PPR) para conducción de agua fría y caliente. Unión por termofusión que garantiza seguridad total en las uniones. Presión nominal PN 20."
   },
   { 
@@ -20,7 +20,7 @@ export const products = [
     name: "Bomba Presurizadora Rowa", 
     price: 320000, 
     category: "agua", 
-    image: "https://images.unsplash.com/photo-1517646331032-9e8563c523a1?q=80&w=2000",
+    image: "/productos/bomba-presurizadora.jpg",
     description: "La solución definitiva para la falta de presión de agua. Totalmente silenciosa, no requiere mantenimiento y bajo consumo eléctrico. Apta para hasta 3 baños."
   },
   { 
@@ -28,7 +28,7 @@ export const products = [
     name: "Regulador de Gas Aprobado", 
     price: 25000, 
     category: "gas", 
-    image: "https://images.unsplash.com/photo-1621905476059-5f69529db3d9?q=80&w=2069",
+    image: "/productos/regulador-gas.jpg",
     description: "Regulador de presión para gas natural con flexible de cobre. Homologado por Enargas. Caudal de 6 m3/h. Incluye pilares de conexión."
   },
   { 
@@ -36,7 +36,7 @@ export const products = [
     name: "Caño Epoxi 3/4 x 6m", 
     price: 38000, 
     category: "gas", 
-    image: "https://images.unsplash.com/photo-1585704032915-c3400ca199e7?q=80&w=2070",
+    image: "/productos/canio-epoxi.jpg",
     description: "Caño de acero revestido en epoxi amarillo, apto para instalaciones de gas natural y envasado. Alta resistencia a la corrosión. Rosca BSP aprobada."
   },
   { 
@@ -44,7 +44,7 @@ export const products = [
     name: "Grifería Monocomando Cocina", 
     price: 85000, 
     category: "griferia", 
-    image: "https://images.unsplash.com/photo-1584622050111-993a426fbf0a?q=80&w=2070",
+    image: "/productos/griferia-monocomando-cocina.jpg",
     description: "Diseño moderno y minimalista con acabado cromado de alto brillo. Cartucho cerámico de 35mm para un control preciso del caudal y temperatura. Incluye flexibles y kit de fijación."
   },
   { 
@@ -52,7 +52,7 @@ export const products = [
     name: "Juego de Baño Completo", 
     price: 450000, 
     category: "griferia", 
-    image: "https://images.unsplash.com/photo-1507652313519-d4e9174996dd?q=80&w=2070",
+    image: "/productos/juego-banio-completo.jpg",
     description: "Renová tu baño con este set completo: Inodoro con mochila dual (ahorro de agua), bidet de 3 agujeros y lavatorio con columna. Loza sanitaria de primera calidad, blanca y brillante."
   },
 ];

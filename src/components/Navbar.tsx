@@ -1,10 +1,11 @@
 "use client";
 
 import Link from "next/link";
-import { ShoppingCart, Menu, Search, Droplets } from "lucide-react";
+import Image from "next/image"; 
+import { ShoppingCart, Menu, Search } from "lucide-react"; // Borramos Droplets porque ya no lo usamos
 import { Button } from "@/components/ui/button";
-import { Input } from "@/components/ui/input";
-import { useCartStore } from "@/lib/store";
+import CartSheet from "@/components/cart/CartSheet";
+import SearchBar from "@/components/SearchBar";
 import {
   Sheet,
   SheetContent,
@@ -13,8 +14,6 @@ import {
   SheetTrigger,
 } from "@/components/ui/sheet";
 import { Separator } from "@/components/ui/separator";
-import CartSheet from "@/components/cart/CartSheet";
-import SearchBar from "@/components/SearchBar";
 
 export default function Navbar() {
   const links = [
@@ -26,68 +25,77 @@ export default function Navbar() {
   ];
 
   return (
-    <header className="sticky top-0 z-50 w-full border-b bg-white/95 backdrop-blur supports-[backdrop-filter]:bg-white/60">
+    <header className="sticky top-0 z-50 w-full bg-white shadow-sm border-b-4 border-aqua-orange">
       
-      {/* CAMBIO 1: Usamos 'w-full px-6' en lugar de 'container' para usar todo el ancho */}
-      <div className="flex h-16 items-center justify-between px-4 md:px-8 w-full relative">
+      <div className="flex h-24 items-center justify-between px-6 md:px-10 w-full relative max-w-[1920px] mx-auto">
         
-        {/* 1. IZQUIERDA: Logo */}
-        <div className="flex-shrink-0">
-          <Link href="/" className="flex items-center gap-2 font-bold text-xl text-blue-700">
-            <Droplets className="h-6 w-6" />
-            <span className="hidden sm:inline-block">Aqua Sanitarios</span>
-            <span className="sm:hidden">Aqua</span>
+        {/* 1. IZQUIERDA: LOGO  */}
+        <div className="flex-shrink-0 z-20">
+          <Link href="/" className="block hover:opacity-80 transition-opacity">
+            <img 
+              src="/logo-nav.png" 
+              alt="Aqua Sanitarios" 
+              className="h-45 w-auto object-contain" 
+            />
           </Link>
         </div>
 
-        {/* 2. CENTRO: Links de Navegación */}
-        {/* Truco de ingeniero: position absolute + translate para centrado matemático perfecto */}
-        <nav className="hidden md:flex gap-8 absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2">
+        {/* 2. CENTRO: Links */}
+        <nav className="hidden lg:flex gap-10 absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2">
           {links.map((link) => (
             <Link
               key={link.name}
               href={link.href}
-              className="text-sm font-medium text-gray-700 hover:text-blue-600 transition-colors"
+              className="text-base font-bold text-gray-700 hover:text-aqua-orange transition-colors uppercase tracking-wide py-2 border-b-2 border-transparent hover:border-aqua-orange"
             >
               {link.name}
             </Link>
           ))}
         </nav>
 
-        {/* 3. DERECHA: Acciones (Buscador, Carrito ÚNICO, Menú Móvil) */}
-        <div className="flex items-center gap-4">
+        {/* 3. DERECHA: Buscador y Carrito */}
+        <div className="flex items-center gap-6 z-20">
           
-          {/* Buscador Desktop */}
-          <SearchBar />
+          <div className="hidden xl:block w-80">
+            <SearchBar /> 
+          </div>
 
-          <CartSheet />
+          <div className="flex items-center gap-2">
+             <div className="hidden sm:flex flex-col text-right mr-2">
+                <span className="text-xs text-gray-500 font-bold">Tu Carrito</span>
+                <span className="text-xs text-aqua-orange font-bold">Ver compra</span>
+             </div>
+             <CartSheet />
+          </div>
 
           {/* Menú Móvil */}
-          <div className="md:hidden">
+          <div className="lg:hidden">
             <Sheet>
               <SheetTrigger asChild>
-                <Button variant="ghost" size="icon">
-                  <Menu className="h-6 w-6" />
+                <Button variant="ghost" size="icon" className="h-10 w-10">
+                  <Menu className="h-8 w-8 text-aqua-blue" />
                 </Button>
               </SheetTrigger>
               <SheetContent side="right">
                 <SheetHeader>
-                  <SheetTitle className="text-left flex items-center gap-2 text-blue-700 font-bold">
-                    <Droplets className="h-5 w-5" /> Aqua Sanitarios
+                  <SheetTitle className="text-left">
+                    {/* Logo chiquito en el menú móvil también */}
+                    <div className="w-32">
+                      <img src="/logo-nav.jpg" alt="Aqua Logo" className="w-full object-contain" />
+                    </div>
                   </SheetTitle>
                 </SheetHeader>
-                <div className="flex flex-col gap-4 mt-6">
+                <div className="flex flex-col gap-6 mt-8">
                   <div className="relative">
-                    <Search className="absolute left-2.5 top-2.5 h-4 w-4 text-gray-500" />
-                    <Input placeholder="Buscar..." className="pl-9" />
+                    <SearchBar />
                   </div>
                   <Separator />
-                  <nav className="flex flex-col gap-4">
+                  <nav className="flex flex-col gap-6">
                     {links.map((link) => (
                       <Link
                         key={link.name}
                         href={link.href}
-                        className="text-lg font-medium hover:text-blue-600"
+                        className="text-xl font-bold text-gray-800 hover:text-aqua-orange"
                       >
                         {link.name}
                       </Link>
